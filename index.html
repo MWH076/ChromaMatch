@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chroma Match</title>
+    <link rel="stylesheet" href="Assets/Styles/index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Main Menu -->
+        <div id="menu" class="menu active">
+            <h1>Chroma Match</h1>
+            <p>Highscore: <span id="main-highscore">0</span></p>
+            <p>Coins: <span id="main-coins">0</span></p>
+            <button class="button" onclick="showScreen('instructions')">Play</button>
+            <button class="button" onclick="showScreen('shop')">Shop</button>
+            <button class="button" onclick="showScreen('inventory')">Inventory</button>
+            <button class="button" onclick="showScreen('leaderboard')">Leaderboard</button>
+            <button class="button" onclick="showScreen('settings')">Settings</button>
+        </div>
+
+        <!-- Instructions Screen -->
+        <div id="instructions" class="menu">
+            <h2>Instructions</h2>
+            <p>Your goal is to find the square that is slightly different in color from the others. You will be able to
+                select a challenge such as brightness, saturation, or hue.</p>
+            <button class="button" onclick="showScreen('difficulty')">Continue</button>
+            <button class="button" onclick="showScreen('menu')">Back to Menu</button>
+        </div>
+
+        <!-- Difficulty Selection -->
+        <div id="difficulty" class="menu">
+            <h2>Select Difficulty</h2>
+            <button class="button" onclick="selectDifficulty('easy')">Easy</button>
+            <button class="button" onclick="selectDifficulty('normal')">Normal</button>
+            <button class="button" onclick="selectDifficulty('hard')">Hard</button>
+            <button class="button" onclick="showScreen('menu')">Back to Menu</button>
+        </div>
+
+        <!-- Challenge Selection -->
+        <div id="challenge-selection" class="challenge-selection">
+            <h2>Select Challenge</h2>
+            <button class="button" onclick="selectChallenge('brightness')">Brightness</button>
+            <button class="button" onclick="selectChallenge('hue')">Hue</button>
+            <button class="button" onclick="selectChallenge('saturation')">Saturation</button>
+            <button class="button" onclick="showScreen('difficulty')">Back</button>
+        </div>
+
+        <!-- Challenge Preview -->
+        <div id="challenge-preview" class="menu">
+            <h2>Preview</h2>
+            <p id="challenge-description"></p>
+            <button class="button" onclick="startGame()">Start Game</button>
+            <button class="button" onclick="showScreen('challenge-selection')">Back</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game" class="game">
+            <div class="status-bar">
+                <div>Score: <span id="score">0</span></div>
+                <div>Highscore: <span id="highscore">0</span></div>
+                <div>Coins: <span id="coins">0</span></div>
+            </div>
+            <div class="color-options" id="color-options">
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over" class="game-over">
+            <h2>Game Over</h2>
+            <p>You scored <span id="final-score"></span> points and earned <span id="final-coins"></span> coins.</p>
+            <p id="highscore-message" class="hidden">New Highscore!</p>
+            <button class="button" onclick="resetGame()">Back to Menu</button>
+        </div>
+
+        <!-- Shop -->
+        <div id="shop" class="shop">
+            <h2>Shop</h2>
+            <p>Coins: <span id="shop-coins">0</span></p>
+            <div class="shop-items" id="shop-items">
+            </div>
+            <button class="button" onclick="showScreen('menu')">Back to Menu</button>
+        </div>
+
+        <!-- Inventory -->
+        <div id="inventory" class="inventory">
+            <h2>Inventory</h2>
+            <div class="inventory-items" id="inventory-items">
+            </div>
+            <button class="button" onclick="showScreen('menu')">Back to Menu</button>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="settings">
+            <h2>Settings</h2>
+            <p>Settings are currently not available.</p>
+            <button class="button" onclick="showScreen('menu')">Back to Menu</button>
+        </div>
+
+        <!-- Leaderboard -->
+        <div id="leaderboard" class="leaderboard">
+            <h2>Leaderboard</h2>
+            <p>Leaderboard is currently not available.</p>
+            <button class="button" onclick="showScreen('menu')">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="Assets/Scripts/index.js"></script>
+</body>
+
+</html>
